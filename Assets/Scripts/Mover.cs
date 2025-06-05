@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Mover : MonoBehaviour
@@ -7,11 +8,23 @@ public class Mover : MonoBehaviour
 
     void Start()
     {
-        
+        PrintInstruction();
     }
 
     void Update()
     {   
+        MovePlayer();
+    }
+
+    void PrintInstruction()
+    {
+        Debug.Log("Welcome to the game!");
+        Debug.Log("Move using arrow keys or wasd");
+        Debug.Log("Don't bump into objects!");
+    }
+
+    void MovePlayer()
+    {
         float xValue =  Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed; //키보드 입력 접근 수평(Horizontal) 혹은 수직(Vertical) --> 좌,우
         float yValue =  0f;
         float zValue = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed; // 위, 아래
